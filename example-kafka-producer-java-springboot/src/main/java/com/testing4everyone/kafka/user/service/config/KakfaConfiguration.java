@@ -1,6 +1,6 @@
-package com.techprimers.kafka.springbootkafkaproducerexample.config;
+package com.testing4everyone.kafka.user.service.config;
 
-import com.techprimers.kafka.springbootkafkaproducerexample.model.User;
+import com.testing4everyone.kafka.user.service.model.User;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.techprimers.kafka.springbootkafkaproducerexample;
+package com.testing4everyone.kafka.user.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

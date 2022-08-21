@@ -1,4 +1,4 @@
-package com.techprimers.kafka.springbootkafkaproducerexample.model;
+package com.testing4everyone.kafka.user.service.model;
 
 public class User {
 
