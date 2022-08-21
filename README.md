@@ -6,9 +6,11 @@ full-example-kafka-java-sprintboot
 - https://kafka.apache.org/quickstart
 - Setup Docker Kafka:
 
++ Run Docker file:
+`docker-compose up -d`
 + Check Docker container: 
 ```
-docker-compose -f docker-kafka-compose.yml ps
+docker-compose ps
  Name             Command            State                      Ports                   
 ----------------------------------------------------------------------------------------
 kafka1   /etc/confluent/docker/run   Exit 1                                             
@@ -22,6 +24,7 @@ docker-compose -f docker-kafka-compose.yml exec broker kafka-topics --create --b
 
 # References:
 
+- https://github.com/confluentinc/cp-all-in-one/blob/7.2.1-post/cp-all-in-one-community/docker-compose.yml
 - https://kafka.apache.org/
 - https://spring.io/projects/spring-boot
 
