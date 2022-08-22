@@ -52,5 +52,6 @@ docker-compose -f docker-kafka-compose.yml exec broker kafka-topics --create --b
 - https://github.com/confluentinc/cp-all-in-one/blob/7.2.1-post/cp-all-in-one-community/docker-compose.yml
 - https://kafka.apache.org/
 - https://spring.io/projects/spring-boot
+- https://www.youtube.com/watch?v=NjHYWEV_E_o
 
 
