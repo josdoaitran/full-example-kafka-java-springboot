@@ -3,7 +3,7 @@ full-example-kafka-java-sprintboot
 
 ## Setup kafka local:
 - Download kafka: https://kafka.apache.org/downloads
-- https://kafka.apache.org/quickstart
+- Quick Start: https://kafka.apache.org/quickstart
 
 + Start Zookeper: 
 ```
