@@ -16,7 +16,7 @@ bin/kafka-server-start.sh config/server.properties
 ```
 + Create topic *PUBLISH_NAME_TOPIC*
 ```
-bin/kafka-topics.sh --create --topic PUBLISH_NAME_TOPIC --bootstrap-server localhost:9092
+bin/kafka-topics.sh --create --topic CREATE_NEW_USER_TOPIC --bootstrap-server localhost:9092
 ```
 
 + Consume messae on topic *PUBLISH_NAME_TOPIC*

@@ -12,13 +12,11 @@ public class UserController {
     @Autowired
     private KafkaTemplate<String, User> kafkaTemplate;
 
-    private static final String TOPIC = "PUBLISH_NAME_TOPIC";
+    private static final String TOPIC = "CREATE_NEW_USER_TOPIC";
 
     @PostMapping("/publish/")
     public String post(@RequestBody final User user) {
-
 //        kafkaTemplate.send(TOPIC, );
-
         return "Published successfully";
     }
 }

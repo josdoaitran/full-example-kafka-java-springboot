@@ -1,0 +1,52 @@
+version: '3.2'
+networks:
+  databaseNet:
+    external: true
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql-5.7
+    restart: always
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=user-svc-password
+      - MYSQL_USER=user-svc-user
+      - MYSQL_PASSWORD=user-svc-password
+    entrypoint:
+      sh -c "
+      echo 'CREATE DATABASE IF NOT EXISTS user_svc;' > /docker-entrypoint-initdb.d/init.sql;
+      /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8 --collation-server=utf8_general_ci "
+
+    networks:
+      - databaseNet
+
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - '9090:80'
+    environment:
+      PMA_HOST: db
+    networks:
+      - databaseNet
+
+  userservice:
+    depends_on:
+      - db
+    image: userservice
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    networks:
+      - databaseNet
+    environment:
+      - spring.datasource.url=jdbc:mysql://db:3306/user_svc
+    external_links:
+      - db
