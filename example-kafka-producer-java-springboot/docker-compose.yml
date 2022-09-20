@@ -1,10 +1,11 @@
-version: '3.2'
-networks:
-  databaseNet:
-    external: true
+version: '3.4'
+#networks:
+#  databaseNet:
+#    external: true
 
 services:
   db:
+    platform: linux/x86_64
     image: mysql:5.7
     container_name: mysql-5.7
     restart: always
@@ -19,8 +20,6 @@ services:
       echo 'CREATE DATABASE IF NOT EXISTS user_svc;' > /docker-entrypoint-initdb.d/init.sql;
       /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8 --collation-server=utf8_general_ci "
 
-    networks:
-      - databaseNet
 
   phpmyadmin:
     depends_on:
@@ -32,8 +31,6 @@ services:
       - '9090:80'
     environment:
       PMA_HOST: db
-    networks:
-      - databaseNet
 
   userservice:
     depends_on:
@@ -44,8 +41,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - '8080:8080'
-    networks:
-      - databaseNet
     environment:
       - spring.datasource.url=jdbc:mysql://db:3306/user_svc
     external_links:
