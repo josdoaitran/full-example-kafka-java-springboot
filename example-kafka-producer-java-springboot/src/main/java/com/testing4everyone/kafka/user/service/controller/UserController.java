@@ -16,7 +16,7 @@ public class UserController {
 
     @PostMapping("/publish/")
     public String post(@RequestBody final User user) {
-//        kafkaTemplate.send(TOPIC, );
+        kafkaTemplate.send(TOPIC, user);
         return "Published successfully";
     }
 }
