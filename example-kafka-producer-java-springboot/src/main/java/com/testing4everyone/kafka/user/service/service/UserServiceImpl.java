@@ -1,7 +1,7 @@
 package com.testing4everyone.kafka.user.service.service;
 
 import com.testing4everyone.kafka.user.service.model.User;
-import com.testing4everyone.kafka.user.service.respository.UserRepository;
+import com.testing4everyone.kafka.user.service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
 
     @Override
-    public User saveUser(User user) {
-        return userRepository.save(user);
+    public User saveUser(User User) {
+        return userRepository.save(User);
     }
 
     @Override
@@ -34,18 +34,18 @@ public class UserServiceImpl implements UserService{
         return userRepository.findByName(UserName);
     }
 
-//    @Override
-//    public User updateUserInfoById(String UserId, User UserName){
-//        User UserUpdate =  UserRepository.getOne(Integer.valueOf(UserId));
-//        String UserNameStr = UserName.getName();
-//        String UserAddressStr = UserName.getAddress();
-//        UserUpdate.setName(UserNameStr);
-//        UserUpdate.setAddress(UserAddressStr);
-//        return UserRepository.save(UserUpdate);
-//    }
+    @Override
+    public User updateUserInfoById(String UserId, User UserName){
+        User UserUpdate =  userRepository.getOne(Integer.valueOf(UserId));
+        String UserNameStr = UserName.getName();
+        String UserAddressStr = UserName.getAddress();
+        UserUpdate.setName(UserNameStr);
+        UserUpdate.setAddress(UserAddressStr);
+        return userRepository.save(UserUpdate);
+    }
 
-//    @Override
-//    public void deleteUserId(String UserId){
-//        UserRepository.deleteById(Integer.valueOf(UserId));
-//    }
+    @Override
+    public void deleteUserId(String UserId){
+        userRepository.deleteById(Integer.valueOf(UserId));
+    }
 }
