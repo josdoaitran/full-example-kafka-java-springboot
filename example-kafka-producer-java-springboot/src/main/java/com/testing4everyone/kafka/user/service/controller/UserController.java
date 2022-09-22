@@ -1,5 +1,6 @@
 package com.testing4everyone.kafka.user.service.controller;
 
+import com.testing4everyone.kafka.user.service.exception.ApiRequestException;
 import com.testing4everyone.kafka.user.service.model.User;
 import com.testing4everyone.kafka.user.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,20 @@ public class UserController {
 
     private static final String TOPIC = "CREATE_NEW_USER_TOPIC";
 
-    @PostMapping("/add")
-    public ResponseEntity<User> addUser(@RequestBody User user) {
-        User createdUser = userService.saveUser(user);
+    @PostMapping("/sign-up")
+    public ResponseEntity<User> addUser(@RequestBody UserSignUpForm user) {
+        User createdUser;
+        try {
+            createdUser = userService.saveUser(new User(user.getname(), user.getPhone(), "Pending"));
+        }catch (Exception e){
+            throw new ApiRequestException(e.getMessage());
+        }
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(createdUser.getId())
                 .toUri();
         kafkaTemplate.send(TOPIC, createdUser);
+
         return ResponseEntity.created(uri).body(createdUser);
     }
 }
