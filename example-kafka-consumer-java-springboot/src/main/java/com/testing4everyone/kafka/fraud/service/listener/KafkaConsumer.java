@@ -1,6 +1,6 @@
-package com.techprimers.kafka.springbootkafkaconsumerexample.listener;
+package com.testing4everyone.kafka.fraud.service.listener;
 
-import com.techprimers.kafka.springbootkafkaconsumerexample.model.User;
+import com.testing4everyone.kafka.fraud.service.model.User;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
