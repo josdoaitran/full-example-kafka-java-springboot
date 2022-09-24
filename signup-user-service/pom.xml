@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.testing4everyone.kafka</groupId>
-	<artifactId>spring-boot-kafka-producer-example</artifactId>
+	<artifactId>signup-user-service</artifactId>
 	<version>1.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-kafka-producer-example</name>
+	<name>signup-user-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

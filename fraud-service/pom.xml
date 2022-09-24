@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.techprimers.kafka</groupId>
-	<artifactId>spring-boot-kafka-consumer-example</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>com.testing4everyone.kafka</groupId>
+	<artifactId>fraud-service</artifactId>
+	<version>1.1.0</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-kafka-consumer-example</name>
-	<description>Demo project for Spring Boot</description>
+	<name>fraud-service</name>
+	<description>fraud-service Spring Boot example</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
