@@ -1,3 +1,4 @@
 .idea
 /target/*
-/example-kafka-producer-java-springboot/target/*
+/fraud-service/target/*
+/signup-user-service/target/*
