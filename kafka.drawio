@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="2YQeC0ZKf2BB5dxAJdtl" name="Page-1">
-        <mxGraphModel dx="1515" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="929" dy="472" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -103,7 +103,7 @@
                 <mxCell id="63" value="/sign-up" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
                     <mxGeometry x="175" y="610" width="65" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="65" value="&lt;div style=&quot;&quot;&gt;&lt;span&gt;New User message&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span&gt;{&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span&gt;&quot;id&quot;:1,&lt;br&gt;&quot;name&quot;:&quot;abc&quot;,&lt;br&gt;&quot;phone&quot;:&quot;0812345674&quot;&lt;br&gt;&quot;status&quot;:&quot;Open&quot;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
+                <mxCell id="65" value="&lt;div&gt;&lt;span&gt;New User message&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;{&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&quot;id&quot;:1,&lt;br&gt;&quot;name&quot;:&quot;abc&quot;,&lt;br&gt;&quot;phone&quot;:&quot;0812345674&quot;&lt;br&gt;&quot;status&quot;:&quot;OPEN&quot;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;}&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
                     <mxGeometry x="440" y="500" width="160" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="66" value="&lt;span&gt;fraud-check-service&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
@@ -139,7 +139,7 @@
                 <mxCell id="73" value="Update User Status" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
                     <mxGeometry x="660" y="800" width="90" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="74" value="" style="endArrow=classic;html=1;strokeColor=#CC6600;strokeWidth=2;entryX=1;entryY=0.25;entryDx=0;entryDy=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" parent="1" source="66" edge="1" target="73">
+                <mxCell id="74" value="" style="endArrow=classic;html=1;strokeColor=#CC6600;strokeWidth=2;entryX=1;entryY=0.25;entryDx=0;entryDy=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" parent="1" source="66" target="73" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="500" y="790" as="sourcePoint"/>
                         <mxPoint x="660" y="830" as="targetPoint"/>
@@ -149,7 +149,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="75" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;dashed=1;dashPattern=1 2;strokeColor=#CC6600;strokeWidth=2;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="73" edge="1" target="57">
+                <mxCell id="75" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;dashed=1;dashPattern=1 2;strokeColor=#CC6600;strokeWidth=2;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="73" target="57" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="500" y="790" as="sourcePoint"/>
                         <mxPoint x="400" y="650" as="targetPoint"/>
@@ -163,7 +163,7 @@
                     <mxGeometry x="310" y="745" width="100" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="80" value="fraud-check-db" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="980" y="770" width="100" height="30" as="geometry"/>
+                    <mxGeometry x="1000" y="770" width="100" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="81" value="&lt;span&gt;user-service&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
                     <mxGeometry x="240" y="920" width="160" height="40" as="geometry"/>
@@ -209,28 +209,28 @@
                 <mxCell id="89" value="/set-password" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="170" y="890" width="100" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="90" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;Set UserPassword message&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;{&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&quot;id&quot;:1,&lt;br&gt;&quot;name&quot;:&quot;abc&quot;,&lt;br&gt;&quot;phone&quot;:&quot;0812345674&quot;&lt;br&gt;&quot;status&quot;:&quot;Active&quot;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&quot;password&quot;:&quot;86fdafs21hf353&quot;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" vertex="1" parent="1">
+                <mxCell id="90" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;Set UserPassword message&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;{&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&quot;id&quot;:1,&lt;br&gt;&quot;name&quot;:&quot;abc&quot;,&lt;br&gt;&quot;phone&quot;:&quot;0812345674&quot;&lt;br&gt;&quot;status&quot;:&quot;ACTIVE&quot;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&quot;password&quot;:&quot;86fdafs21hf353&quot;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=#d6b656;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
                     <mxGeometry x="420" y="960" width="180" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="91" value="Set Password" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                <mxCell id="91" value="Set Password" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
                     <mxGeometry x="660" y="920" width="90" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="92" value="" style="shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.2d.letter;" vertex="1" parent="1">
+                <mxCell id="92" value="" style="shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.2d.letter;" parent="1" vertex="1">
                     <mxGeometry x="667.8" y="950" width="26.4" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="93" value="" style="shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.2d.letter;" vertex="1" parent="1">
+                <mxCell id="93" value="" style="shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.2d.letter;" parent="1" vertex="1">
                     <mxGeometry x="650" y="820" width="26.4" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="94" value="" style="shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.2d.letter;" vertex="1" parent="1">
+                <mxCell id="94" value="" style="shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.2d.letter;" parent="1" vertex="1">
                     <mxGeometry x="650" y="640" width="26.4" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="95" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;strokeColor=#CCCC00;strokeWidth=2;" edge="1" parent="1">
+                <mxCell id="95" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;strokeColor=#CCCC00;strokeWidth=2;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="400" y="950" as="sourcePoint"/>
                         <mxPoint x="660" y="950" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="97" value="" style="endArrow=classic;html=1;strokeColor=#CCCC00;strokeWidth=2;exitX=0;exitY=0.25;exitDx=0;exitDy=0;dashed=1;dashPattern=1 1;" edge="1" parent="1" source="91">
+                <mxCell id="97" value="" style="endArrow=classic;html=1;strokeColor=#CCCC00;strokeWidth=2;exitX=0;exitY=0.25;exitDx=0;exitDy=0;dashed=1;dashPattern=1 1;" parent="1" source="91" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="660" y="1065" as="sourcePoint"/>
                         <mxPoint x="400" y="650" as="targetPoint"/>
@@ -240,18 +240,8 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="99" value="" style="endArrow=classic;html=1;strokeColor=#CCCC00;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;dashPattern=1 1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="91" target="66">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="670" y="940" as="sourcePoint"/>
-                        <mxPoint x="410" y="659.9999999999999" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="800" y="940"/>
-                            <mxPoint x="880" y="640"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="77" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;Update User message&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;{&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&quot;id&quot;:1,&lt;br&gt;&quot;name&quot;:&quot;abc&quot;,&lt;br&gt;&quot;phone&quot;:&quot;0812345674&quot;&lt;br&gt;&quot;status&quot;:&quot;Pending/Blocked&quot;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
-                    <mxGeometry x="800" y="680" width="160" height="120" as="geometry"/>
+                <mxCell id="77" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;Update User message&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;{&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&quot;id&quot;:1,&lt;br&gt;&quot;name&quot;:&quot;abc&quot;,&lt;br&gt;&quot;phone&quot;:&quot;0812345674&quot;&lt;br&gt;&quot;status&quot;:&quot;PENDING/BLOCKED&quot;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="680" width="200" height="120" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

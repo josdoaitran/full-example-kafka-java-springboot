@@ -1,9 +1,39 @@
 package com.testing4everyone.kafka.fraud.service.model;
 
-public class User {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Column;
 
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(length = 20, nullable=false)
     private String name;
-    private String dept;
+    @Column(unique=true, length = 10, nullable=false)
+    private String phone;
+    private String status;
+
+    public User() {
+    }
+
+    public User(String name, String phone, String status) {
+        super();
+        this.name = name;
+        this.phone = phone;
+        this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -13,29 +43,19 @@ public class User {
         this.name = name;
     }
 
-    public String getDept() {
-        return dept;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDept(String dept) {
-        this.dept = dept;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public User() {
+    public String getStatus() {
+        return status;
     }
 
-    public User(String name, String dept) {
-
-        this.name = name;
-        this.dept = dept;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuffer sb = new StringBuffer("User{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", dept='").append(dept).append('\'');
-        sb.append('}');
-        return sb.toString();
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

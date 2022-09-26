@@ -2,6 +2,7 @@ package com.testing4everyone.kafka.user.service.controller;
 
 import com.testing4everyone.kafka.user.service.exception.ApiRequestException;
 import com.testing4everyone.kafka.user.service.model.User;
+import com.testing4everyone.kafka.user.service.model.UserStatus;
 import com.testing4everyone.kafka.user.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -26,7 +27,7 @@ public class UserController {
     public ResponseEntity<User> addUser(@RequestBody UserSignUpForm user) {
         User createdUser;
         try {
-            createdUser = userService.saveUser(new User(user.getname(), user.getPhone(), "Pending"));
+            createdUser = userService.saveUser(new User(user.getname(), user.getPhone(), UserStatus.OPEN.toString()));
         }catch (Exception e){
             throw new ApiRequestException(e.getMessage());
         }
