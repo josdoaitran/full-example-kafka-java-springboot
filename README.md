@@ -1,5 +1,5 @@
-# full-example-kafka-java-sprintboot
-full-example-kafka-java-sprintboot
+# Full-example-kafka-java-sprintboot
+Full-example-kafka-java-sprintboot
 
 ## Setup kafka local:
 - Download kafka: https://kafka.apache.org/downloads
@@ -26,26 +26,16 @@ bin/kafka-topics.sh --create --topic CREATE_NEW_USER_TOPIC --bootstrap-server lo
 {"name":"testing4everyone","dept":"Technology","salary":12000}
 ```
 
-- Setup Docker Kafka:
+## Setup Docker Kafka:
 
-+ Run Docker file:
+### Setup local infra Using Docker:
+Setup infra: https://github.com/josdoaitran/setup-local-infra-testing4everyone/blob/main/local-infra-mysql-kafka.yml
+### Run this command to setup Infra:
 ```
-docker-compose up -d
-```
-+ Check Docker container: 
-```
-docker-compose ps
- Name             Command            State                      Ports                   
-----------------------------------------------------------------------------------------
-kafka1   /etc/confluent/docker/run   Exit 1                                             
-zoo1     /etc/confluent/docker/run   Up       0.0.0.0:2181->2181/tcp, 2888/tcp, 3888/tcp
+docker compose -f local-infra-mysql-kafka.yml up -d
 ```
 
-+ Create a topic pagev:
 
-```
-docker-compose -f docker-kafka-compose.yml exec broker kafka-topics --create --bootstrap-server \\nlocalhost:9092 --replication-factor 1 --partitions 1 --topic pagev
-```
 
 # References:
 

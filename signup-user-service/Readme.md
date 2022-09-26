@@ -6,7 +6,7 @@ Setup infra: https://github.com/josdoaitran/setup-local-infra-testing4everyone/b
 docker compose -f local-infra-mysql-kafka.yml up -d
 ```
 
-## Create Database `user_svc`
+## Create Database `signup-user-db`
 ## Create Kafka topic:
 - Access to Kafka container
 ```aidl
