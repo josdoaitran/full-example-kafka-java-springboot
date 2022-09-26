@@ -6,9 +6,12 @@ import com.testing4everyone.kafka.user.service.model.UserStatus;
 import com.testing4everyone.kafka.user.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.kafka.support.SendResult;
 
 import java.net.URI;
 
@@ -35,7 +38,21 @@ public class UserController {
                 .path("/{id}")
                 .buildAndExpand(createdUser.getId())
                 .toUri();
-        kafkaTemplate.send(TOPIC, createdUser);
+
+        ListenableFuture<SendResult<String,User>> future = kafkaTemplate.send(TOPIC, createdUser);
+        future.addCallback(new ListenableFutureCallback() {
+            @Override
+            public void onFailure(Throwable ex) {
+                System.out.println("Messages failed to push on topic");
+            }
+
+            @Override
+            public void onSuccess(Object result) {
+                System.out.println("Messages successfully pushed on topic");
+            }
+        });
+
+//        kafkaTemplate.send(TOPIC, createdUser);
 
         return ResponseEntity.created(uri).body(createdUser);
     }
