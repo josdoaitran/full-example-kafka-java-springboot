@@ -1,6 +1,6 @@
-package com.testing4everyone.kafka.fraud.service.service;
+package com.testing4everyone.kafka.user.service.service;
 
-import com.testing4everyone.kafka.fraud.service.model.User;
+import com.testing4everyone.kafka.user.service.model.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +11,7 @@ public interface UserService {
     public Optional<User> getUserById(String UserId);
     public Optional<User> getUserByName(String UserId);
 
-    public Optional<User> getUserByPhone(String UserId);
+    public User getUserByPhone(String phone);
 
     public User updateUserInfoById(String UserId, User UserName);
 

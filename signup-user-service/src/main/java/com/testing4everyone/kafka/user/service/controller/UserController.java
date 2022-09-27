@@ -4,8 +4,12 @@ import com.testing4everyone.kafka.user.service.exception.ApiRequestException;
 import com.testing4everyone.kafka.user.service.model.User;
 import com.testing4everyone.kafka.user.service.model.UserStatus;
 import com.testing4everyone.kafka.user.service.service.UserService;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.*;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +25,8 @@ import java.net.URI;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    private NewTopic topic;
     @Autowired
     private KafkaTemplate<String, User> kafkaTemplate;
 
@@ -39,20 +45,8 @@ public class UserController {
                 .buildAndExpand(createdUser.getId())
                 .toUri();
 
-        ListenableFuture<SendResult<String,User>> future = kafkaTemplate.send(TOPIC, createdUser);
-        future.addCallback(new ListenableFutureCallback() {
-            @Override
-            public void onFailure(Throwable ex) {
-                System.out.println("Messages failed to push on topic");
-            }
-
-            @Override
-            public void onSuccess(Object result) {
-                System.out.println("Messages successfully pushed on topic");
-            }
-        });
-
-//        kafkaTemplate.send(TOPIC, createdUser);
+        Message<User> message = MessageBuilder.withPayload(createdUser).setHeader(KafkaHeaders.TOPIC, TOPIC).build();
+        kafkaTemplate.send(message);
 
         return ResponseEntity.created(uri).body(createdUser);
     }

@@ -1,4 +1,4 @@
-package com.testing4everyone.kafka.fraud.service.config;
+package com.testing4everyone.kafka.user.service.config;
 
 //@Sql({"/data.sql"})
 //public class SpringBootInitialLoad {

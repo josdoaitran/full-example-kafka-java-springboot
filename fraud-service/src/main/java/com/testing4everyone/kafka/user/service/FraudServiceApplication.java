@@ -1,4 +1,4 @@
-package com.testing4everyone.kafka.fraud.service;
+package com.testing4everyone.kafka.user.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

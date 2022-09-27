@@ -1,4 +1,4 @@
-package com.testing4everyone.kafka.fraud.service.model;
+package com.testing4everyone.kafka.user.service.model;
 public enum UserStatus {
     OPEN,
     PENDING,

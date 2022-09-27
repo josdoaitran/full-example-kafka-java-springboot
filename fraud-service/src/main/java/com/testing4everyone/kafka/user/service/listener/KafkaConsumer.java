@@ -1,6 +1,6 @@
-package com.testing4everyone.kafka.fraud.service.listener;
+package com.testing4everyone.kafka.user.service.listener;
 
-import com.testing4everyone.kafka.fraud.service.model.User;
+import com.testing4everyone.kafka.user.service.model.User;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 @Service

@@ -1,7 +1,7 @@
-package com.testing4everyone.kafka.fraud.service.service;
+package com.testing4everyone.kafka.user.service.service;
 
-import com.testing4everyone.kafka.fraud.service.model.User;
-import com.testing4everyone.kafka.fraud.service.repository.UserRepository;
+import com.testing4everyone.kafka.user.service.model.User;
+import com.testing4everyone.kafka.user.service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User>getUserByPhone(String Phone){
+    public User getUserByPhone(String Phone){
         return userRepository.findByPhone(Phone);
     }
 
@@ -51,8 +51,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUserStatus(String UserId, String status){
-        User UserUpdate =  userRepository.getOne(Integer.valueOf(UserId));
+        User UserUpdate =  userRepository.findUserById(Integer.valueOf(UserId));
         UserUpdate.setStatus(status);
+        userRepository.save(UserUpdate);
+        System.out.println("Done");
     }
 
     @Override
