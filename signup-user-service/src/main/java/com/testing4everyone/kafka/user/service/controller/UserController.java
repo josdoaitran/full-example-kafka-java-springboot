@@ -6,6 +6,8 @@ import com.testing4everyone.kafka.user.service.model.UserStatus;
 import com.testing4everyone.kafka.user.service.service.UserService;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.*;
@@ -18,6 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.kafka.support.SendResult;
 
 import java.net.URI;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("user")
@@ -49,5 +52,11 @@ public class UserController {
         kafkaTemplate.send(message);
 
         return ResponseEntity.created(uri).body(createdUser);
+    }
+    @GetMapping("/get_UserId/{UserId}")
+    public ResponseEntity<Optional<User>> User(@PathVariable String UserId){
+        HttpHeaders headers = new HttpHeaders();
+        Optional<User> returnUser = userService.getUserById(UserId);
+        return new ResponseEntity<>(returnUser, headers, HttpStatus.OK);
     }
 }

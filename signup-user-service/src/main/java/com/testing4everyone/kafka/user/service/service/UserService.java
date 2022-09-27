@@ -11,5 +11,9 @@ public interface UserService {
     public Optional<User> getUserById(String UserId);
     public Optional<User> getUserByName(String UserId);
     public User updateUserInfoById(String UserId, User UserName);
+
+    public User getUserByPhone(String phone);
     public void deleteUserId(String UserId);
+
+    public void updateUserStatus(String UserId, String status);
 }
