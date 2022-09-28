@@ -33,7 +33,7 @@ public class UserController {
     @Autowired
     private KafkaTemplate<String, User> kafkaTemplate;
 
-    private static final String TOPIC = "CREATE_NEW_USER_TOPIC";
+    private static final String TOPIC_NAME = "CREATE_NEW_USER_TOPIC";
 
     @PostMapping("/sign-up")
     public ResponseEntity<User> addUser(@RequestBody UserSignUpForm user) {
@@ -48,15 +48,16 @@ public class UserController {
                 .buildAndExpand(createdUser.getId())
                 .toUri();
 
-        Message<User> message = MessageBuilder.withPayload(createdUser).setHeader(KafkaHeaders.TOPIC, TOPIC).build();
+        Message<User> message = MessageBuilder.withPayload(createdUser).setHeader(KafkaHeaders.TOPIC, TOPIC_NAME).build();
         kafkaTemplate.send(message);
 
         return ResponseEntity.created(uri).body(createdUser);
     }
-    @GetMapping("/get_UserId/{UserId}")
-    public ResponseEntity<Optional<User>> User(@PathVariable String UserId){
+    @GetMapping("/get_userid/{phone}")
+    public ResponseEntity<User> getUserPhone(@PathVariable String phone){
         HttpHeaders headers = new HttpHeaders();
-        Optional<User> returnUser = userService.getUserById(UserId);
-        return new ResponseEntity<>(returnUser, headers, HttpStatus.OK);
+        User returnUser = userService.getUserByPhone(phone);
+        ResponseEntity<User> userResponseEntity = new ResponseEntity<>(returnUser, headers, HttpStatus.OK);
+        return userResponseEntity;
     }
 }
