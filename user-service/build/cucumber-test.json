@@ -1,0 +1,96 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-09-29T11:04:22.585Z",
+        "before": [
+          {
+            "result": {
+              "duration": 485451000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.testing4everyone.kafka.user.service.library.kafka.UserConsumer.createUserConsumer()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "Creating a new user should publish a message to the topic",
+        "description": "",
+        "id": "create-and-retrieve-user;creating-a-new-user-should-publish-a-message-to-the-topic",
+        "after": [
+          {
+            "result": {
+              "duration": 41225000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.testing4everyone.kafka.user.service.library.kafka.UserConsumer.closeUserConsumer()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "error_message": "io.cucumber.core.exception.CucumberException: Could not invoke step [A user with phone\u003d{string} and name {string} is created] defined at \u0027com.testing4everyone.kafka.user.service.stepdefs.TestDefs.aUserWithIdAndNameIsCreated(java.lang.String,java.lang.String)\u0027.\nIt appears there was a problem with the step definition.\nThe converted arguments types were (java.lang.String, java.lang.String)\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.couldNotInvokeStep(PickleStepDefinitionMatch.java:130)\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:65)\n\tat io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)\n\tat io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)\n\tat io.cucumber.core.runner.TestStep.run(TestStep.java:64)\n\tat io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)\n\tat io.cucumber.core.runner.TestCase.run(TestCase.java:104)\n\tat io.cucumber.core.runner.Runner.runPickle(Runner.java:71)\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:151)\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:135)\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:27)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:199)\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:90)\n\tat org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)\n\tat org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:234)\n\tat org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:413)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\n\tat com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)\n\tat com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)\n\tat com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)\n\tat com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)\n\tat com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235)\n\tat com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54)\nCaused by: io.cucumber.core.backend.CucumberBackendException: Error creating bean with name \u0027com.testing4everyone.kafka.user.service.stepdefs.TestDefs\u0027: Unsatisfied dependency expressed through field \u0027mockMvc\u0027; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type \u0027org.springframework.test.web.servlet.MockMvc\u0027 available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required\u003dtrue)}\n\tat io.cucumber.spring.SpringFactory.getInstance(SpringFactory.java:165)\n\tat io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)\n\tat io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)\n\tat io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)\n\tat io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)\n\t... 33 more\nCaused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name \u0027com.testing4everyone.kafka.user.service.stepdefs.TestDefs\u0027: Unsatisfied dependency expressed through field \u0027mockMvc\u0027; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type \u0027org.springframework.test.web.servlet.MockMvc\u0027 available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required\u003dtrue)}\n\tat org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)\n\tat org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)\n\tat org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)\n\tat org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$1(AbstractBeanFactory.java:374)\n\tat io.cucumber.spring.CucumberScenarioScope.get(CucumberScenarioScope.java:13)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:371)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:233)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1273)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1234)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveBean(DefaultListableBeanFactory.java:494)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:349)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:342)\n\tat org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1172)\n\tat io.cucumber.spring.TestContextAdaptor.getInstance(TestContextAdaptor.java:103)\n\tat io.cucumber.spring.SpringFactory.getInstance(SpringFactory.java:163)\n\t... 37 more\nCaused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type \u0027org.springframework.test.web.servlet.MockMvc\u0027 available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required\u003dtrue)}\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1790)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1346)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)\n\tat org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)\n\t... 55 more\n",
+              "duration": 28103000,
+              "status": "failed"
+            },
+            "line": 5,
+            "name": "A user with phone\u003d\"0906973152\" and name \"Max Mustermann\" is created",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"0906973152\"",
+                  "offset": 18
+                },
+                {
+                  "val": "\"Max Mustermann\"",
+                  "offset": 40
+                }
+              ],
+              "location": "com.testing4everyone.kafka.user.service.stepdefs.TestDefs.aUserWithIdAndNameIsCreated(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 299000,
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": "The user with phone\u003d\"0906973152\" and name \"Max Mustermann\" should be written on the topic",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"0906973152\"",
+                  "offset": 20
+                },
+                {
+                  "val": "\"Max Mustermann\"",
+                  "offset": 42
+                }
+              ],
+              "location": "com.testing4everyone.kafka.user.service.stepdefs.TestDefs.theUserWithIdAndNameShouldBeWrittenOnTheTopic(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@UserConsumer"
+          }
+        ]
+      }
+    ],
+    "name": "Create and retrieve user",
+    "description": "",
+    "id": "create-and-retrieve-user",
+    "keyword": "Feature",
+    "uri": "classpath:features//User.feature",
+    "tags": []
+  }
+]

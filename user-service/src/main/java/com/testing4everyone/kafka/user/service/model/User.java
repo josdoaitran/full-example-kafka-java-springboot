@@ -21,7 +21,7 @@ public class User {
 
     public User() {
     }
-
+    @Builder
     public User(String name, String phone, String status) {
         super();
         this.name = name;
