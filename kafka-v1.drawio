@@ -1,13 +1,13 @@
 <mxfile host="65bd71144e">
     <diagram id="2YQeC0ZKf2BB5dxAJdtl" name="Page-1">
-        <mxGraphModel dx="1493" dy="689" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1416" dy="586" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="62" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;connectable=1;" parent="1" vertex="1">
-                    <mxGeometry x="60" y="440" width="1060" height="480" as="geometry"/>
+                    <mxGeometry x="-52" y="440" width="1172" height="480" as="geometry"/>
                 </mxCell>
-                <mxCell id="57" value="&lt;span&gt;signup-user-service&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                <mxCell id="57" value="&lt;span&gt;user-service&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
                     <mxGeometry x="240" y="600" width="160" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;dashed=1;" parent="1" vertex="1">
@@ -70,9 +70,6 @@
                 <mxCell id="27" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#945DF2;gradientDirection=north;fillColor=#5A30B5;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.vpc;" parent="1" vertex="1">
                     <mxGeometry x="110" y="440" width="38" height="38" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" value="Public Network" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-50" y="440" width="100" height="30" as="geometry"/>
-                </mxCell>
                 <mxCell id="49" value="" style="endArrow=classic;html=1;exitX=1.014;exitY=0.29;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;strokeColor=#0000FF;strokeWidth=2;exitPerimeter=0;" parent="1" source="57" target="72" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="420" y="800" as="sourcePoint"/>
@@ -99,9 +96,6 @@
                         <mxPoint x="20" y="640" as="sourcePoint"/>
                         <mxPoint x="420" y="570" as="targetPoint"/>
                     </mxGeometry>
-                </mxCell>
-                <mxCell id="63" value="/sign-up" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
-                    <mxGeometry x="147.5" y="610" width="65" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="65" value="&lt;div&gt;&lt;span&gt;New User message&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;{&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&quot;id&quot;:1,&lt;br&gt;&quot;name&quot;:&quot;abc&quot;,&lt;br&gt;&quot;phone&quot;:&quot;0812345674&quot;&lt;br&gt;&quot;status&quot;:&quot;OPEN&quot;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;}&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
                     <mxGeometry x="440" y="500" width="160" height="120" as="geometry"/>
@@ -159,8 +153,8 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="79" value="signup-user-db" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="310" y="810" width="100" height="30" as="geometry"/>
+                <mxCell id="79" value="user-db" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="332" y="805" width="100" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="80" value="fraud-check-db" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="1000" y="770" width="100" height="30" as="geometry"/>
@@ -174,14 +168,17 @@
                 <mxCell id="77" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;Update User message&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;{&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&quot;id&quot;:1,&lt;br&gt;&quot;name&quot;:&quot;abc&quot;,&lt;br&gt;&quot;phone&quot;:&quot;0812345674&quot;&lt;br&gt;&quot;status&quot;:&quot;PENDING/BLOCKED&quot;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
                     <mxGeometry x="800" y="680" width="200" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="97" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
+                <mxCell id="97" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="20" y="680" as="sourcePoint"/>
                         <mxPoint x="237.5" y="680.0000000000001" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="98" value="&lt;pre style=&quot;font-family: &amp;#34;jetbrains mono&amp;#34; , monospace ; font-size: 9.8pt&quot;&gt;/get_UserId/{UserId}&lt;/pre&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" vertex="1" parent="1">
+                <mxCell id="98" value="&lt;pre style=&quot;font-family: &amp;#34;jetbrains mono&amp;#34; , monospace ; font-size: 9.8pt&quot;&gt;GET /get_UserId/{UserId}&lt;/pre&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" parent="1" vertex="1">
                     <mxGeometry x="115" y="650" width="65" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="&lt;pre style=&quot;font-family: &amp;#34;jetbrains mono&amp;#34; , monospace ; font-size: 9.8pt&quot;&gt;POST /sign-up&lt;/pre&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="610" width="65" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
