@@ -29,7 +29,7 @@ public class KafkaConsumerFraudCheckUser {
     public void consumeSigupUserMessage(User user) {
         LOGGER.info("Consumed User JSON Message: " + user.toString());
         // Save new sign-up user to check Fraud
-        userService.saveUser(user);
+//        userService.saveUser(user);
         String newPhone = user.getPhone();
         String newUserId = String.valueOf(userService.getUserByPhone(newPhone).getId());
         LOGGER.info((user.getName().toString()));

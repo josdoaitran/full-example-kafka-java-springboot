@@ -29,6 +29,14 @@ public class User {
         this.status = status;
     }
 
+    public User(int id, String name, String phone, String status) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.status = status;
+    }
+
     public int getId() {
         return id;
     }

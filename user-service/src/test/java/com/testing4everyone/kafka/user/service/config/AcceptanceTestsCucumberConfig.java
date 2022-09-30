@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
  * Runner for Cucumber acceptance tests.
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"classpath:features/TestGetUserByPhone.feature"},
+@CucumberOptions(features = {"classpath:features/"},
     glue = {
         "com.testing4everyone.kafka.user.service.config",
         "com.testing4everyone.kafka.user.service.stepdefs"},
