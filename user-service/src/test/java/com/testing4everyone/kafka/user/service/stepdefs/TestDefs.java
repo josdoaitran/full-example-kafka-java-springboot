@@ -12,14 +12,20 @@ import io.cucumber.java.en.When;
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.kafka.test.EmbeddedKafkaBroker;
 import org.springframework.kafka.test.utils.KafkaTestUtils;
 import org.springframework.test.web.servlet.MvcResult;
@@ -46,6 +52,7 @@ public class TestDefs extends SpringAcceptanceTest {
     @Autowired
     private EmbeddedKafkaBroker embeddedKafkaBroker;
 
+
     @Given("^Clear User information in User Service by Phone = (.*)$")
     public void initTestData(String phone) {
         try{
@@ -55,9 +62,10 @@ public class TestDefs extends SpringAcceptanceTest {
         }
     }
 
-    @Given("^UserID has Name = (.*) Phone = (.*) and Status = (.*) in User Service$")
-    public void userInfoInSignupService(String name, String phone, String status) {
+    @Given("^UserID = (.*) has Name = (.*) Phone = (.*) and Status = (.*) in User Service$")
+    public void userInfoInSignupService(int id, String name, String phone, String status) {
         User prepareUser = new User();
+        prepareUser.setId(id);
         prepareUser.setName(name);
         prepareUser.setPhone(phone);
         prepareUser.setStatus(status);
@@ -80,6 +88,8 @@ public class TestDefs extends SpringAcceptanceTest {
     public void testcaseGetUserIdReturnResult(int testCaseNo, String phone, String name, String userStatus) throws Exception {
         User userResponse = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), User.class);
         assertThat(userResponse);
+        userStatus.replace(" ","");
+        userResponse.getStatus();
         assertThat(userStatus.replace(" ","")).isEqualTo(userResponse.getStatus());
         assertThat(name).isEqualTo(userResponse.getName());
         assertThat(phone).isEqualTo(userResponse.getPhone());
@@ -98,9 +108,10 @@ public class TestDefs extends SpringAcceptanceTest {
 
     private Consumer<String, User> consumerServiceTest;
 
+
     @Given("^Prepare consumer listen Topic = (.*)$")
     public void prepareConsumer(String topic){
-        Map<String, Object> consumerProps = KafkaTestUtils.consumerProps("group_consumer_test", "false", embeddedKafkaBroker);
+        Map<String, Object> consumerProps = KafkaTestUtils.consumerProps("group_id", "false", embeddedKafkaBroker);
         consumerProps.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         ConsumerFactory cf = new DefaultKafkaConsumerFactory<String, User>(consumerProps, new StringDeserializer(), new JsonDeserializer<>(User.class, false));
         consumerServiceTest = cf.createConsumer();
@@ -128,6 +139,23 @@ public class TestDefs extends SpringAcceptanceTest {
                 .andDo(print())
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
+    }
+
+    private Producer<String, User> producerTest;
+
+    @Given("^Prepare producer message Topic = (.*)$")
+    public void prepareProducer(String topic){
+        Map<String, Object> producerProps = KafkaTestUtils.producerProps(embeddedKafkaBroker.getBrokersAsString());
+        logger.info("props {}", producerProps);
+        producerTest = new KafkaProducer(producerProps, new StringSerializer(), new JsonSerializer<User>());
+    }
+
+
+    @Given("^There is a new Update User Status message to Topic (.*) Id = (.*) Phone = (.*) Name = (.*) Status = (.*) from Fraud Service$")
+    public void newUpdateUserStatusMessage(String topic, int id, String phone, String name, String status){
+        User userMessage = new User(id, name, phone, status);
+        producerTest.send(new ProducerRecord(topic, "", userMessage));
+        producerTest.close();
     }
 
 
