@@ -1,4 +1,4 @@
 .idea
 /target/*
 /fraud-service/target/*
-/signup-user-service/target/*
+/user-service/target/*
