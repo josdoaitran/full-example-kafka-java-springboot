@@ -17,6 +17,7 @@ import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.awaitility.Durations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +33,13 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.awaitility.Awaitility.await;
+import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -84,7 +88,7 @@ public class TestDefs extends SpringAcceptanceTest {
                 .andReturn();
     }
 
-    @Then("^TestCase (.*): I expect API get User by Phone = (.*) will return Name (.*) and Status (.*)$")
+    @Then("^TestCase (.*): I expect API get User by Phone = (.*) will return Name = (.*) and Status = (.*)$")
     public void testcaseGetUserIdReturnResult(int testCaseNo, String phone, String name, String userStatus) throws Exception {
         User userResponse = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), User.class);
         assertThat(userResponse);
@@ -111,7 +115,7 @@ public class TestDefs extends SpringAcceptanceTest {
 
     @Given("^Prepare consumer listen Topic = (.*)$")
     public void prepareConsumer(String topic){
-        Map<String, Object> consumerProps = KafkaTestUtils.consumerProps("group_id", "false", embeddedKafkaBroker);
+        Map<String, Object> consumerProps = KafkaTestUtils.consumerProps("group_json", "false", embeddedKafkaBroker);
         consumerProps.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         ConsumerFactory cf = new DefaultKafkaConsumerFactory<String, User>(consumerProps, new StringDeserializer(), new JsonDeserializer<>(User.class, false));
         consumerServiceTest = cf.createConsumer();
@@ -128,6 +132,23 @@ public class TestDefs extends SpringAcceptanceTest {
         assertThat(phone).isEqualTo(valueReceived.getPhone());
 
         consumerServiceTest.close();
+    }
+
+    @Then("^I expect User Service consume update user message Id = (.*) Phone = (.*) Name = (.*) Status = (.*)$")
+    public void testConsumerUpdateUserMesssage(int id, String phone, String name, String userStatus) {
+        await().atMost(Durations.TEN_SECONDS).untilAsserted(() -> {
+            User updatedUser = userRepository.findByPhone(phone);
+            assertEquals(name, updatedUser.getName());
+            assertEquals(phone, updatedUser.getPhone());
+            assertEquals(userStatus, updatedUser.getStatus());
+
+//            List<User> exampleEntityList = userRepository.findAll();
+//            assertEquals(1, exampleEntityList.size());
+//            User firstEntity = exampleEntityList.get(0);
+//            assertEquals(name, firstEntity.getName());
+//            assertEquals(phone, firstEntity.getPhone());
+//            assertEquals(userStatus, firstEntity.getStatus());
+        });
     }
 
     @Given("^User signup with Name = (.*) Phone = (.*)$")

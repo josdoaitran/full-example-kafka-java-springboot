@@ -1,7 +1,6 @@
 # UserStory :
 Feature: Customer can input user and phone to sign-up
-  Background:
-    Given Prepare consumer listen Topic = UPDATE_USER_INFO_TOPIC
+
 
   Scenario Outline: Customer is able to sign-up
     Given Prepare consumer listen Topic = CREATE_NEW_USER_TOPIC
@@ -17,16 +16,14 @@ Feature: Customer can input user and phone to sign-up
   Scenario Outline: Test User Service consume message from Fraud Service
     Given Clear User information in User Service by Phone = <phone>
     And UserID = <id> has Name = <name> Phone = <phone> and Status = <olduserStatus> in User Service
+
     And Prepare producer message Topic = UPDATE_USER_INFO_TOPIC
     When There is a new Update User Status message to Topic UPDATE_USER_INFO_TOPIC Id = <id> Phone = <phone> Name = <name> Status = <newStatus> from Fraud Service
 
-#    Given Prepare consumer listen Topic = UPDATE_USER_INFO_TOPIC
-    And I expect a new message Kafka topic UPDATE_USER_INFO_TOPIC Phone = <phone> Name = <name> Status = <newStatus>
-
+    And I expect User Service consume update user message Id = <id> Phone = <phone> Name = <name> Status = <newStatus>
     When Request to get User information by Phone = <phone>
-    Then TestCase <Testcase>: I expect API get User by Phone = <phone> will return Name <name> and Status <newStatus>
+    Then TestCase <Testcase>: I expect API get User by Phone = <phone> will return Name = <name> and Status = <newStatus>
 
     Examples:
       | Testcase | id | name      | phone      | olduserStatus | newStatus |
-      | 1        | 20  | Doai Tran | 0906973152 | OPEN          | PENDING   |
-      | 2        | 21 | Doai Tran | 0906973153 | OPEN          | BLOCKED   |
+      | 1        | 1  | Doai Tran | 0906973152 | OPEN          | PENDING   |

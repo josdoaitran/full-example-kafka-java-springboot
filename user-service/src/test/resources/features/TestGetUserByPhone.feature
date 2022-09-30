@@ -5,7 +5,7 @@ Feature: Customer can input user and phone to get account info
     Given Clear User information in User Service by Phone = <phone>
     And UserID = <id> has Name = <name> Phone = <phone> and Status = <userStatus> in User Service
     When  Request to get User information by Phone = <phone>
-    Then TestCase <Testcase>: I expect API get User by Phone = <phone> will return Name <name> and Status <userStatus>
+    Then TestCase <Testcase>: I expect API get User by Phone = <phone> will return Name = <name> and Status = <userStatus>
 
     Examples:
       | Testcase | id | name       | phone      | userStatus |
