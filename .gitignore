@@ -2,3 +2,5 @@
 /target/*
 /fraud-service/target/*
 /user-service/target/*
+/fraud-service/.idea
+/user-service/.idea
