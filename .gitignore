@@ -2,6 +2,7 @@
 target/*
 fraud-service/target/*
 user-service/target/*
+example-e2e-test-kafka-testing/target/*
 fraud-service/.idea
 user-service/.idea
 example-e2e-test-kafka-testing/example-e2e-test-kafka-testing/.idea
