@@ -4,6 +4,7 @@ fraud-service/target/*
 user-service/target/*
 fraud-service/.idea
 user-service/.idea
+example-e2e-test-kafka-testing/example-e2e-test-kafka-testing/.idea
 example-e2e-test-kafka-testing/example-e2e-test-kafka-testing.iml
 fraud-service/fraud-service.iml
 user-service/fuser-service.iml
