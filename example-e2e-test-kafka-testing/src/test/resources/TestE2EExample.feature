@@ -18,6 +18,6 @@ Feature: Customer can input user and phone to sign-up
     And Validate User info in Fraud-Check-Service correct Phone = <phone> Name = <name> Status = <newUserStatus>
 
     Examples:
-      | name      | phone      | oldUserStatus | newUserStatus |
-      | Doai Tran | 0906973151 | OPEN          | PENDING       |
-      | Doai Tran | 0908973151 | OPEN          | BLOCKED       |
+      | name         | phone      | oldUserStatus | newUserStatus |
+      | Doai Tran    | 0906973151 | OPEN          | PENDING       |
+      | QA Community | 0908973151 | OPEN          | BLOCKED       |
